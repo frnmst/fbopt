@@ -48,7 +48,7 @@ of course installed on your system.
 | Package | Executable | Version command | Package Version |
 |---------|------------|-----------------|-----------------|
 | [GNU Bash](http://www.gnu.org/software/bash/bash.html) | `/bin/bash` | `$ bash --version` | `GNU bash, version 4.4.23(1)-release (x86_64-unknown-linux-gnu)` |
-| [util-linux](https://www.kernel.org/pub/linux/utils/util-linux/) | `/bin/getopt` | $ getopt --version` | `getopt from util-linux 2.33` |
+| [util-linux](https://www.kernel.org/pub/linux/utils/util-linux/) | `/bin/getopt` | `$ getopt --version` | `getopt from util-linux 2.33` |
 
 NOTE: this documentation always refers to the latest [fbopt release](https://github.com/frnmst/fbopt/releases).
 
@@ -60,7 +60,7 @@ NOTE: this documentation always refers to the latest [fbopt release](https://git
 
 ## License
 
-Written in 2018 by Franco Masotti/frnmst <franco.masotti@student.unife.it>
+Written in 2018 by Franco Masotti/frnmst <franco.masotti@live.com>
 
 To the extent possible under law, the author(s) have dedicated all 
 copyright and related and neighboring rights to this software to the public 
