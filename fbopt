@@ -129,8 +129,7 @@ main()
     shift 1
     # Everything else after '--' is an argument.
     argc="${*}"
-
-    # Arguments must be placed here as local variables
+    # Arguments must be placed here as local variables.
     local arg_a="${1}"
     local arg_b="${2}"
 
@@ -160,8 +159,8 @@ main()
 
     # From now on you should call a function or an external program
     # using the values of the flag variables.
-    [ "${flag_a}" = 'alpha' ] && do_something_alpha && return ${?}
-    [ "${flag_a}" = 'a' ] && do_something_a && return ${?}
+    [ "${flag_a}" = 'alpha' ] && do_something_alpha "${arg_a}" && return ${?}
+    [ "${flag_a}" = 'a' ] && do_something_a "${arg_a}" "${arg_b}" && return ${?}
 }
 
 # Test dependencies and versions.
