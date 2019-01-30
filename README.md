@@ -2,6 +2,10 @@
 
 A template for option parsing in Bash based on getopt
 
+## Version
+
+0.4.2
+
 ## Reasons
 
 See https://frnmst.gitlab.io/notes/my-bash-option-parsing-template.html#reason
@@ -39,6 +43,7 @@ The following elements should be common sense and not be specific to fbopt
 | some variables are enclosed within double quotes | double quotes serve as a delimiter between multiple variable names if these are consecutive. Every variable between the quotes is interpolated | `"${variable}"` |
 | some variables are not enclosed within double quotes | the only variables allowed without double quotes are integers (such as return values) and loop iterators (because these won't work otherwise) | `${?}` or `for v in ${values}; do echo "${v}"; done` |
 | all variables use the curly braces notation | curly braces serve as a delimiter between multiple variable names if these are consecutive | `"${variable}"` or `${variable}` |
+| all variable names with a constant value must be capital case | you might want to load some constants from a configuration file to override the values of options within the fbopt file | `local flag_a="${FLAG_A_DEFAULT_VALUE}"` | 
 
 ## Dependencies
 
@@ -51,6 +56,12 @@ of course installed on your system.
 | [util-linux](https://www.kernel.org/pub/linux/utils/util-linux/) | `/bin/getopt` | `$ getopt --version` | `getopt from util-linux 2.33` |
 
 NOTE: this documentation always refers to the latest [fbopt release](https://github.com/frnmst/fbopt/releases).
+
+## Software using fbopt
+
+- [mcmc-comparisons](https://github.com/frnmst/mcmc-comparisons)
+- [spectrscan](https://github.com/frnmst/spectrscan)
+- [get-fattura-pa](https://github.com/frnmst/get-fattura-pa)
 
 ## Resources
 
