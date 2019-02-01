@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# fbopt version 0.4.2
+# fbopt version 0.4.3
 #
 # Written in 2018 by Franco Masotti/frnmst <franco.masotti@live.com>
 #
@@ -15,6 +15,8 @@
 #
 # See also https://frnmst.gitlab.io/notes/my-bash-option-parsing-template.html
 #
+
+set -euo pipefail
 
 show_help()
 {
@@ -73,6 +75,10 @@ main()
     # Set the options. flag_f has an optional argument.
     local getopt_short_options='a:b:c:def::hi'
     local getopt_long_options='flag-a:,flag-b:,flag-e,print-flags,help,'
+
+    # Set the default values for the static flags.
+    local help='false'
+    local print_flags='false'
 
     # Set the default values for the flags.
     local flag_a=''
@@ -165,7 +171,9 @@ main()
 
 # Test dependencies and versions.
 # getopt must return 4 to be fully compatible. See getopt's manual.
+set +e
 which bash getopt 1>/dev/null 2>/dev/null && { getopt -T; [ ${?} -eq 4 ]; }
+set -e
 
 # Get and pass argc to the main function.
 # All this work with an array must be done to preserve

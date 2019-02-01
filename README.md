@@ -2,13 +2,33 @@
 
 A template for option parsing in Bash based on getopt
 
-## Version
+## Table of contents
 
-0.4.2
+[](TOC)
+
+- [fbopt](#fbopt)
+    - [Table of contents](#table-of-contents)
+    - [Reasons](#reasons)
+    - [Version](#version)
+    - [Usage](#usage)
+    - [Bashisms](#bashisms)
+    - [GNU Bash "strict mode"](#gnu-bash-strict-mode)
+    - [Conventions](#conventions)
+    - [Dependencies](#dependencies)
+    - [Software using fbopt](#software-using-fbopt)
+    - [License](#license)
+
+[](TOC)
 
 ## Reasons
 
 See https://frnmst.gitlab.io/notes/my-bash-option-parsing-template.html#reason
+
+## Version
+
+0.4.3
+
+See all [fbopt releases](https://github.com/frnmst/fbopt/releases).
 
 ## Usage
 
@@ -33,6 +53,14 @@ You will find at least the following bashisms in the template
 | arrays | `"${array[@]}"` |
 | indirect variables | `"${!variable}"` |
 
+## GNU Bash "strict mode"
+
+This template enables the shell's ["strict mode"](http://redsymbol.net/articles/unofficial-bash-strict-mode/).
+You can disable it by commenting or removing the following line inside 
+`fbopt`:
+
+    set -euo pipefail
+
 ## Conventions
 
 The following elements should be common sense and not be specific to fbopt
@@ -55,19 +83,12 @@ of course installed on your system.
 | [GNU Bash](http://www.gnu.org/software/bash/bash.html) | `/bin/bash` | `$ bash --version` | `GNU bash, version 4.4.23(1)-release (x86_64-unknown-linux-gnu)` |
 | [util-linux](https://www.kernel.org/pub/linux/utils/util-linux/) | `/bin/getopt` | `$ getopt --version` | `getopt from util-linux 2.33` |
 
-NOTE: this documentation always refers to the latest [fbopt release](https://github.com/frnmst/fbopt/releases).
-
 ## Software using fbopt
 
 - [mcmc-comparisons](https://github.com/frnmst/mcmc-comparisons)
 - [spectrscan](https://github.com/frnmst/spectrscan)
 - [get-fattura-pa](https://github.com/frnmst/get-fattura-pa)
-
-## Resources
-
-- https://www.mariusvw.com/2013/02/24/bash-getopt-versus-getopts/
-- http://abhipandey.com/2016/03/getopt-vs-getopts/
-- https://unix.stackexchange.com/questions/62950/getopt-getopts-or-manual-parsing-what-to-use-when-i-want-to-support-both-shor
+- [qvm](https://github.com/frnmst/qvm/tree/dev)
 
 ## License
 
