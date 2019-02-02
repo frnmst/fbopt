@@ -70,7 +70,9 @@ main()
     # Create a new array from the reference of the input one.
     # See https://stackoverflow.com/questions/1063347/passing-arrays-as-parameters-in-bash
     # See some comments below.
+    set +u
     declare -a argc=("${!1}")
+    set -u
 
     # Set the options. flag_f has an optional argument.
     local getopt_short_options='a:b:c:def::hi'
@@ -136,8 +138,10 @@ main()
     # Everything else after '--' is an argument.
     argc="${*}"
     # Arguments must be placed here as local variables.
+    set +u
     local arg_a="${1}"
     local arg_b="${2}"
+    set -u
 
     [ "${help}" = 'true' ] && show_help && return 0
     # Check that the flags or arguments that must be non empty are actually not
