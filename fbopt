@@ -176,7 +176,7 @@ main()
 # Test dependencies and versions.
 # getopt must return 4 to be fully compatible. See getopt's manual.
 set +e
-which bash getopt 1>/dev/null 2>/dev/null && { getopt -T; [ ${?} -eq 4 ]; }
+command -V bash getopt 1>/dev/null 2>/dev/null && { getopt -T; [ ${?} -eq 4 ]; }
 set -e
 
 # Get and pass argc to the main function.
