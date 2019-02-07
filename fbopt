@@ -36,6 +36,7 @@ Options:
     -h, --help                  print this help
     --print-flags               print the enabled options. This can also
                                 be used to print the default options
+    --version                   print software version
 
 Exit status:
  0  if OK,
@@ -58,6 +59,14 @@ show_flags()
     done
 }
 
+show_version()
+{
+    local program_name="${1}"
+    local version="${2}"
+
+    printf "%s\n" ""${program_name}" "${version}""
+}
+
 getopt_error()
 {
     local program_name="${0}"
@@ -76,11 +85,16 @@ main()
 
     # Set the options. flag_f has an optional argument.
     local getopt_short_options='a:b:c:def::hi'
-    local getopt_long_options='flag-a:,flag-b:,flag-e,print-flags,help,'
+    local getopt_long_options='flag-a:,flag-b:,flag-e,print-flags,help,version'
 
     # Set the default values for the static flags.
     local help='false'
     local print_flags='false'
+    local version='false'
+    # Remember to set the following variables accordingly and to update the
+    # version number.
+    local program_version='0.0.1'
+    local program_name_simplified='myprogram'
 
     # Set the default values for the flags.
     local flag_a=''
@@ -129,6 +143,8 @@ main()
 
             --print-flags ) print_flags='true' ;;
 
+            --version ) version='true' ;;
+
         esac
         # Iterate through all arguments.
         shift 1
@@ -163,6 +179,9 @@ main()
             'flag_d' \
             'flag_e' \
             'flag_f' \
+        && return 0
+    [ "${version}" = 'true' ] \
+        && show_version "${program_name_simplified}" "${program_version}" \
         && return 0
     # Override values of optional parameters.
     [ -z "${flag_f}" ] && flag_f='true'
