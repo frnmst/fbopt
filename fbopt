@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# fbopt version 0.4.3
+# fbopt version 0.4.4
 #
 # Written in 2018 by Franco Masotti/frnmst <franco.masotti@live.com>
 #
@@ -202,9 +202,21 @@ set -e
 # All this work with an array must be done to preserve
 # quotations for arguments that have whitespaces.
 # See https://lists.debian.org/debian-user/2007/12/msg01244.html
-declare -a opts=()
+# See also https://mywiki.wooledge.org/BashFAQ/112#Negatives
+# for the empty array is unset problem.
+opts=('')
 for opt in "${@}"; do
     opts=("${opts[@]}" "${opt}")
 done
-main 'opts[@]'
 
+if [ -z "${opts[0]}" ] && [ ${#opts[@]} -gt 1 ]; then
+        # Shift one element left in the opts array.
+        i=0
+        while [ ${i} -lt $((${#opts[@]}-1)) ]; do
+                opts[${i}]=${opts[$((${i}+1))]}
+                i=$((${i}+1))
+        done
+        unset i
+fi
+
+main 'opts[@]'

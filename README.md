@@ -26,7 +26,7 @@ See https://frnmst.gitlab.io/notes/my-bash-option-parsing-template.html#reason
 
 ## Version
 
-0.4.3
+0.4.4
 
 See all [fbopt releases](https://github.com/frnmst/fbopt/releases).
 
@@ -75,13 +75,20 @@ The following elements should be common sense and not be specific to fbopt
 
 ## Dependencies
 
-The template is known to work with the the packages listed here. These must be 
-of course installed on your system.
+The template is known to work with the the packages listed here and they must 
+be installed on your system.
 
 | Package | Executable | Version command | Package Version |
 |---------|------------|-----------------|-----------------|
-| [GNU Bash](http://www.gnu.org/software/bash/bash.html) | `/bin/bash` | `$ bash --version` | `GNU bash, version 4.4.23(1)-release (x86_64-unknown-linux-gnu)` |
-| [util-linux](https://www.kernel.org/pub/linux/utils/util-linux/) | `/bin/getopt` | `$ getopt --version` | `getopt from util-linux 2.33` |
+| [GNU Bash](http://www.gnu.org/software/bash/bash.html) | `/bin/bash` | `$ bash --version` | `GNU bash, version 4.4.23(1)-release (x86_64-unknown-linux-gnu)` or `GNU bash, version 4.3.48(1)-release (x86_64-pc-linux-gnu)` |
+| [util-linux](https://www.kernel.org/pub/linux/utils/util-linux/) | `/bin/getopt` | `$ getopt --version` | `getopt from util-linux 2.33` or `getopt from util-linux 2.27.1` |
+
+## Bugs
+
+- An empty array results as unset causing fbopt to malfunction. This happens 
+  with GNU Bash 4.3.x but not with 4.4.x. A workaround is available for fbopt 
+  version 0.4.4 and later, in case fbopt is used with an older version of Bash.
+  See also: https://mywiki.wooledge.org/BashFAQ/112#Negatives
 
 ## Software using fbopt
 
