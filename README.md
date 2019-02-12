@@ -15,6 +15,7 @@ A template for option parsing in Bash based on getopt
     - [GNU Bash "strict mode"](#gnu-bash-strict-mode)
     - [Conventions](#conventions)
     - [Dependencies](#dependencies)
+    - [Bugs](#bugs)
     - [Software using fbopt](#software-using-fbopt)
     - [License](#license)
 

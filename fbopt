@@ -123,27 +123,27 @@ main()
     while [ "${1}" != '--' ]; do
         case "${1}" in
 
-            -a | --flag-a ) flag_a="${2}";
-                            shift 1 ;;
+            -a | --flag-a )     flag_a="${2}";
+                                shift 1 ;;
 
-            --flag-b )      flag_b="${2}";
-                            shift 1 ;;
+            --flag-b )          flag_b="${2}";
+                                shift 1 ;;
 
-            -c )            flag_c="${2}";
-                            shift 1 ;;
+            -c )                flag_c="${2}";
+                                shift 1 ;;
 
-            -d )            flag_d='true' ;;
+            -d )                flag_d='true' ;;
 
-            -e | --flag-e ) flag_e='true' ;;
+            -e | --flag-e )     flag_e='true' ;;
 
-            -f )            flag_f="${2}";
-                            shift 1 ;;
+            -f )                flag_f="${2}";
+                                shift 1 ;;
 
-            -h | --help )   help='true' ;;
+            -h | --help )       help='true' ;;
 
-            --print-flags ) print_flags='true' ;;
+            --print-flags )     print_flags='true' ;;
 
-            --version ) version='true' ;;
+            --version )         version='true' ;;
 
         esac
         # Iterate through all arguments.
