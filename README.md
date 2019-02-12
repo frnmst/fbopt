@@ -27,7 +27,7 @@ See https://frnmst.gitlab.io/notes/my-bash-option-parsing-template.html#reason
 
 ## Version
 
-0.4.4
+0.4.5
 
 See all [fbopt releases](https://github.com/frnmst/fbopt/releases).
 
