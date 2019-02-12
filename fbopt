@@ -160,6 +160,9 @@ main()
     set -u
 
     [ "${help}" = 'true' ] && show_help && return 0
+    [ "${version}" = 'true' ] \
+        && show_version "${program_name_simplified}" "${program_version}" \
+        && return 0
     # Check that the flags or arguments that must be non empty are actually not
     # empty.
     # A user might infact circumvent getopt's mechanisms like this
@@ -179,9 +182,6 @@ main()
             'flag_d' \
             'flag_e' \
             'flag_f' \
-        && return 0
-    [ "${version}" = 'true' ] \
-        && show_version "${program_name_simplified}" "${program_version}" \
         && return 0
     # Override values of optional parameters.
     [ -z "${flag_f}" ] && flag_f='true'
